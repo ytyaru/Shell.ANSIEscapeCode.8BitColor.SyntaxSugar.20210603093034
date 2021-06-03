@@ -1,0 +1,35 @@
+${THIS_NAME} [-fbl I] [-FBL N] [-x]
+  ANSI Escape Codeにおける文字、背景、下線の色を8bitカラーで設定するSGRコードを出力する。
+auguments:
+   1     \e[38;5;I  文字を指定した色にする。
+   2     \e[48;5;I  背景を指定した色にする。
+   3     \e[58;5;I  下線を指定した色にする。
+options:
+  -f I   \e[38;5;I  文字を指定した色にする。
+  -b I   \e[48;5;I  背景を指定した色にする。
+  -l I   \e[58;5;I  下線を指定した色にする。
+  -F N   \e[38;5;I  文字を指定した色にする。
+  -B N   \e[48;5;I  背景を指定した色にする。
+  -L N   \e[58;5;I  下線を指定した色にする。
+  -x     \e\59      下線をデフォルト色にする。
+index:
+  0 <= I <= 255
+names:
+  k|K|black    I=0 + 8(-F -B -L)
+  r|R|red      I=1 + 8(-F -B -L)
+  g|G|green    I=2 + 8(-F -B -L)
+  y|Y|yellow   I=3 + 8(-F -B -L)
+  b|B|blue     I=4 + 8(-F -B -L)
+  m|M|magenta  I=5 + 8(-F -B -L)
+  c|C|cyan     I=6 + 8(-F -B -L)
+  w|W|white    I=7 + 8(-F -B -L)
+examples:
+  ${THIS_NAME} -f 0 -b 127 -l 255
+  ${THIS_NAME} -x
+  ${THIS_NAME} -f red -b green -l blue
+  ${THIS_NAME} -f r -b g -l b
+  ${THIS_NAME} -fr -bg -lb
+  ${THIS_NAME} -F red -B green -L blue
+  ${THIS_NAME} -F r -B g -L b
+  ${THIS_NAME} -Fr -Bg -Lb
+
