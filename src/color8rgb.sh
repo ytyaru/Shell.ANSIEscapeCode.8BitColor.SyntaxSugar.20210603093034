@@ -1,14 +1,12 @@
 #!/bin/bash
 #set -Ceu
 #-----------------------------------------------------------------------------
-# ANSI Escape Codeにおける文字、背景、下線の色を8bitカラーで設定するSGRコードを出力する。216色=16-231をRGB各6値で表現する。
-# -f 63,63,63 -b 63,63,63 -l 63,63,63
+# ANSI Escape Codeにおける文字、背景、下線の色を8bitカラーのうち216色に設定するSGRコードを出力する。
 # Created: 2021-05-30T09:27:40+0900
 #-----------------------------------------------------------------------------
 # echo -e "\e[38;5;Im対象\e[m"
 Run() {
 	THIS="$(realpath "${BASH_SOURCE:-0}")"; HERE="$(dirname "$THIS")"; PARENT="$(dirname "$HERE")"; THIS_NAME="$(basename "$THIS")"; APP_ROOT="$PARENT";
-	ColorId="$HERE/StandardColorIndex4.sh"
 	SGR=(); PARAMS=(); VALUES=(); COLOR_SPACE_ID=5;
 	IsInt() { test 0 -eq $1 > /dev/null 2>&1 || expr $1 + 0 > /dev/null 2>&1; }
 	IsRange() { [ "$1" -ge $2 ] && [ "$1" -le $3 ] && return 0 || return 1; }
@@ -26,7 +24,7 @@ Run() {
 		b) SetArray 48 $OPTARG;;
 		l) SetArray 58 $OPTARG;;
 		x) echo "59"; exit;;
-		*) eval "echo \"$(cat "$HERE/help.txt")\""
+		*) eval "echo \"$(cat "$HERE/help-color8rgb.txt")\""
 	esac
 	done
 	shift $((OPTIND - 1))

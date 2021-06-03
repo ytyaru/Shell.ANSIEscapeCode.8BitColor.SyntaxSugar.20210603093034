@@ -4,7 +4,7 @@
 # ANSI Escape Codeにおける文字、背景、下線の色を8bitカラーで設定するSGRコードを出力する。
 # Created: 2021-05-30T09:27:40+0900
 #-----------------------------------------------------------------------------
-# echo -e "\e[38;2;Im対象\e[m"
+# echo -e "\e[38;5;Im対象\e[m"
 Run() {
 	THIS="$(realpath "${BASH_SOURCE:-0}")"; HERE="$(dirname "$THIS")"; PARENT="$(dirname "$HERE")"; THIS_NAME="$(basename "$THIS")"; APP_ROOT="$PARENT";
 	ColorId="$HERE/StandardColorIndex4.sh"
