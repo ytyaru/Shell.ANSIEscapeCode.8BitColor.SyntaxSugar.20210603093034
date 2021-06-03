@@ -1,7 +1,7 @@
 #!/bin/bash
 #set -Ceu
 #-----------------------------------------------------------------------------
-# ANSI Escape Codeにおける文字、背景、下線の色を8bitカラーのうち216色に設定するSGRコードを出力する。
+# ANSI Escape Codeにおける文字、背景、下線の色を8bitカラーのうち216色セーフカラーに設定するSGRコードを出力する。
 # Created: 2021-05-30T09:27:40+0900
 #-----------------------------------------------------------------------------
 # echo -e "\e[38;5;Im対象\e[m"
@@ -24,7 +24,7 @@ Run() {
 		b) SetArray 48 $OPTARG;;
 		l) SetArray 58 $OPTARG;;
 		x) echo "59"; exit;;
-		*) eval "echo \"$(cat "$HERE/help-color8rgb.txt")\""
+		*) eval "echo \"$(cat "$HERE/help-color8safe.txt")\""
 	esac
 	done
 	shift $((OPTIND - 1))
