@@ -7,6 +7,8 @@ set -Ceu
 Run() {
 	THIS="$(realpath "${BASH_SOURCE:-0}")"; HERE="$(dirname "$THIS")"; PARENT="$(dirname "$HERE")"; THIS_NAME="$(basename "$THIS")"; APP_ROOT="$PARENT";
 	COL8="$HERE/color8.sh"
+	COLG="$HERE/color8gray.sh"
+	COLS="$HERE/color8safe.sh"
 	echo -e "\e[4;$("$COL8" 1 2 4)m対象\e[m"
 	echo -e "\e[4;$("$COL8" r g b)m対象\e[m"
 	echo -e "\e[4;$("$COL8" red green blue)m対象\e[m"
@@ -17,6 +19,9 @@ Run() {
 	echo -e "\e[4;$("$COL8" 160 118 33)m対象\e[m"
 	echo -e "\e[4;$("$COL8" red)m対象\e[m"
 	echo -e "\e[4;$("$COL8" red green)m対象\e[m"
+
+	echo -e "\e[4;$("$COLG" 0 12 23)m対象\e[m"
+	echo -e "\e[4;$("$COLS" 0,0,0 5,5,5 3,3,3)m対象\e[m"
 	cd "$HERE"
 }
 Run "$@"
